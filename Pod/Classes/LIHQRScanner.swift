@@ -72,10 +72,9 @@ public class LIHQRScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     public func stopSession() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) { () -> Void in
-            
-            self.captureSession?.stopRunning()
-        }
+        
+        
+        self.captureSession?.stopRunning()
         
     }
     
@@ -86,20 +85,33 @@ public class LIHQRScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             
+            self.delegate?.qrDetected?(nil, error: nil)
             return
         }
         
         // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        if let metadataObj = metadataObjects[0] as? AVMetadataMachineReadableCodeObject {
         
-        if metadataObj.type == AVMetadataObjectTypeQRCode {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-            //let barCodeObject = videoPreviewLayer?.transformedMetadataObjectForMetadataObject(metadataObj as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
-            
-            if metadataObj.stringValue != nil {
-                self.stopSession()
-                self.delegate?.qrDetected?(metadataObj.stringValue, error: nil)
+            if metadataObj.type == AVMetadataObjectTypeQRCode {
+                // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+                
+                if metadataObj.stringValue != nil {
+                    
+                    self.delegate?.qrDetected?(metadataObj.stringValue, error: nil)
+                    
+                } else {
+                    
+                    self.delegate?.qrDetected?(nil, error: nil)
+                }
+                
+            } else {
+                
+                self.delegate?.qrDetected?(nil, error: nil)
             }
+            
+        } else {
+            
+            self.delegate?.qrDetected?(nil, error: nil)
         }
         
     }

@@ -1,22 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="LIHQRScanner_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tkq-bd-qJu">
+                                <rect key="frame" x="20" y="50" width="280" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="qzA-ap-4uj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjH-a3-ubk">
+                                <rect key="frame" x="0.0" y="350" width="320" height="218"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afU-He-gwh">
+                                        <rect key="frame" x="20" y="99" width="280" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="afU-He-gwh" firstAttribute="centerY" secondItem="yjH-a3-ubk" secondAttribute="centerY" id="54D-3a-uoM"/>
+                                    <constraint firstItem="afU-He-gwh" firstAttribute="leading" secondItem="yjH-a3-ubk" secondAttribute="leading" constant="20" id="7ZC-Id-e9b"/>
+                                    <constraint firstAttribute="trailing" secondItem="afU-He-gwh" secondAttribute="trailing" constant="20" id="g1U-Tc-Gj7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yjH-a3-ubk" firstAttribute="top" secondItem="Tkq-bd-qJu" secondAttribute="bottom" id="7Kb-g8-XtI"/>
+                            <constraint firstItem="yjH-a3-ubk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ITs-9J-XYK"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="yjH-a3-ubk" secondAttribute="bottom" id="TUc-m3-7gW"/>
+                            <constraint firstItem="Tkq-bd-qJu" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="Xdv-cB-SWH"/>
+                            <constraint firstAttribute="trailing" secondItem="yjH-a3-ubk" secondAttribute="trailing" id="YLI-oD-aSQ"/>
+                            <constraint firstItem="Tkq-bd-qJu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="b9N-G6-Jyi"/>
+                            <constraint firstAttribute="trailing" secondItem="Tkq-bd-qJu" secondAttribute="trailing" constant="20" id="lWV-Zq-C22"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="scannedText" destination="afU-He-gwh" id="Rhc-ux-AeY"/>
+                        <outlet property="scannerContainer" destination="Tkq-bd-qJu" id="YIW-0x-z18"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

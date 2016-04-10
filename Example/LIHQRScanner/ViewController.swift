@@ -11,6 +11,8 @@ import LIHQRScanner
 
 class ViewController: UIViewController, LIHQRScannerDelegate {
     
+    @IBOutlet weak var scannerContainer: UIView!
+    @IBOutlet weak var scannedText: UILabel!
     
     private var qrScanner: LIHQRScanner?
 
@@ -24,7 +26,7 @@ class ViewController: UIViewController, LIHQRScannerDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.qrScanner?.initialize(videoContainer: self.view)
+        self.qrScanner?.initialize(videoContainer: self.scannerContainer)
         self.qrScanner?.startSession(nil)
         
     }
@@ -36,7 +38,8 @@ class ViewController: UIViewController, LIHQRScannerDelegate {
     func qrDetected(qrString: String?, error: NSError?) {
         
         if let qrCode = qrString {
-            print(qrCode)
+            
+            self.scannedText.text = qrCode
         }
     }
 }
