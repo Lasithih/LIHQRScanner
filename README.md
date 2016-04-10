@@ -5,6 +5,16 @@
 [![License](https://img.shields.io/cocoapods/l/LIHQRScanner.svg?style=flat)](http://cocoapods.org/pods/LIHQRScanner)
 [![Platform](https://img.shields.io/cocoapods/p/LIHQRScanner.svg?style=flat)](http://cocoapods.org/pods/LIHQRScanner)
 
+
+## Installation
+
+LIHQRScanner is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "LIHQRScanner"
+```
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -50,14 +60,9 @@ func qrDetected(qrString: String?, error: NSError?) {
 
 iOS 8.0+
 
-## Installation
+## Known Issues
 
-LIHQRScanner is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "LIHQRScanner"
-```
+Only supports for portrait yet. 
 
 ## Author
 
