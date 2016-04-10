@@ -1,0 +1,14 @@
+PODS:
+  - LIHQRScanner (0.1.0)
+
+DEPENDENCIES:
+  - LIHQRScanner (from `../`)
+
+EXTERNAL SOURCES:
+  LIHQRScanner:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LIHQRScanner: 751f2520e2721c51aaa639f39cca7bd8f62b5189
+
+COCOAPODS: 0.39.0

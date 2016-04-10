@@ -1,0 +1,6 @@
+framework module LIHQRScanner {
+  umbrella header "LIHQRScanner-umbrella.h"
+
+  export *
+  module * { export * }
+}

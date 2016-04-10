@@ -7,18 +7,37 @@
 //
 
 import UIKit
+import LIHQRScanner
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, LIHQRScannerDelegate {
+    
+    
+    private var qrScanner: LIHQRScanner?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.qrScanner = LIHQRScanner()
+        self.qrScanner?.delegate = self
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.qrScanner?.initialize(videoContainer: self.view)
+        self.qrScanner?.startSession(nil)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    func qrDetected(qrString: String?, error: NSError?) {
+        
+        if let qrCode = qrString {
+            print(qrCode)
+        }
+    }
 }
 
